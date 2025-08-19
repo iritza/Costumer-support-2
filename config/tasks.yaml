@@ -1,0 +1,29 @@
+# Intake Task
+intake_task:
+  description: >
+    Analyze the following customer inquiry and determine its intent and relevant department:
+    
+    "{{customer_message}}"
+    
+    Create a short internal summary and suggest which department should handle it.
+  expected_output: >
+    A structured internal summary that includes the main issue, customer intent, and suggested department.
+  agent: customer_agent
+
+# Retrieval Task
+retrieval_task:
+  description: >
+    Based on the following internal summary    
+    Retrieve relevant and accurate information from documentation or the internet that can help resolve the issue.
+  expected_output: >
+    A concise and well-cited explanation or fact relevant to the customer's issue.
+  agent: retriever_agent
+
+# Response Task
+response_task:
+  description: > 
+    Write a final customer-facing response based on the following retrieved information:
+    If the information is insufficient, draft a clarification request or escalate to human support.
+  expected_output: >
+    A clear and polite customer reply, or a request for more information, or a note indicating the need for escalation.
+  agent: responder_agent
